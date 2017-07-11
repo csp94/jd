@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 1050px;
+			height: 500px;
+			border:1px solid red;
+			margin:50px auto;
+			position: relative;
+		}
+		#box .arrow img{
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			z-index: 10;
+			top:50%;
+			margin-top: -50px;
+		}
+		#box .arrow .left{
+			left:0;
+		}
+		#box .arrow .right{
+			right:0;
+		}
+		#box #pic img{
+			position: absolute;
+			left:0;
+			top:0;
+		}
+	</style>
+	<script src="js/jd.js"></script>
+	<script>
+		window.onload=function(){
+			var pic = document.getElementById("pic");
+			var imgs = pic.children;
+			var img1 = {"height":300,"width":300,"left":0,"top":100,"z-index":1,"opacity":0.3};
+			var img2 = {"height":350,"width":450,"left":100,"top":70,"z-index":2,"opacity":0.5};
+			var img3 = {"height":400,"width":600,"left":200,"top":40,"z-index":3,"opacity":1};
+			var img4 = {"height":350,"width":450,"left":500,"top":70,"z-index":2,"opacity":0.5};
+			var img5 = {"height":300,"width":350,"left":700,"top":100,"z-index":1,"opacity":0.3};
+			var jsons = [img1,img2,img3,img4,img5];
+			all();
+			function all(){
+				for(var i=0;i<jsons.length;i++){
+				var json = jsons[i];
+				anim(imgs[i],{
+					"height":json["height"],
+					"width":json["width"],
+					"left":json["left"],
+					"top":json["top"],
+					"z-index":json["z-index"],
+					"opacity":json["opacity"]
+					});
+				}
+			}
+			var leftBtn = document.getElementsByClassName("left")[0];
+			var rightBtn = document.getElementsByClassName("right")[0];
+			leftBtn.onclick =function(){
+				var pop = jsons.pop();
+				jsons.unshift(pop);
+				all();
+			}
+			rightBtn.onclick =function(){
+				var shift = jsons.shift();
+				jsons.push(shift);
+				all();
+			}
+			function anim(ele,js,func){
+				// 多次点击时,使得这个元素的计时器停止
+				clearInterval(ele.timer);
+				ele.timer = setInterval(function(){
+					// 声明一个开关,去表示是否可以停止计时器
+					var isStop = true;
+					for(var attrName in js){
+						// 根据attrName进行不同区分对待
+						var step ;
+						if(attrName == "opacity"){
+							step = (js[attrName]*100 - getAttr(ele,attrName) * 100)/10;
+						}else{
+							step = (js[attrName] - parseInt(getAttr(ele,attrName)))/10;
+						}
+						// 根据step正负值来进行对应的判断
+						step = step>0?Math.ceil(step):Math.floor(step);
+						if(attrName == "opacity"){
+							ele.style.opacity = (getAttr(ele,attrName) * 100 + step)/100;
+						}else if(attrName == "z-index"){
+							ele.style.zIndex = js[attrName];
+						}else{
+							ele.style[attrName] = parseInt(getAttr(ele,attrName)) + step + "px";
+						}
+						// 对于当前属性值跟目标值进行比较,只要有一个属性值还不等于target,那么isStop就设置为false
+						var compare = (attrName == "opacity")?getAttr(ele,attrName):parseInt(getAttr(ele,attrName));
+						if(compare != js[attrName]){
+							isStop = false;
+						}
+					}
+					// 对于计时器的停止
+					if(isStop){
+						console.log("停下来了");
+						clearInterval(ele.timer);
+						if(func!=null){
+							func();
+						}
+					}
+				}, 10);
+			}
+			// 使用一个函数去获取到这个元素的属性值
+			function getAttr(ele,attrName){
+				// ie9以上以及其他浏览器上的写法
+				if(window.getComputedStyle!=null){
+					return window.getComputedStyle(ele)[attrName];
+				}else{
+					// ie 6,7,8
+					return ele.currentStyle[attrName];
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="box">
+		<div class="arrow">
+			<img  class="left"src="images/left.png" alt="" />
+			<img  class="right"src="images/right.png" alt="" />
+		</div>
+		<div id="pic">
+			<img src="images/photo_1.jpg" alt="" />
+			<img src="images/photo_2.jpg" alt="" />
+			<img src="images/photo_3.jpg" alt="" />
+			<img src="images/photo_4.jpg" alt="" />
+			<img src="images/photo_5.jpg" alt="" />
+		</div>
+	</div>
+</body>
+</html>

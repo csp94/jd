@@ -1,0 +1,369 @@
+/*去除常用元素的内偏距以及外偏距*/
+blockquote,body,button,dd,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,hr,input,legend,li,ol,p,pre,td,textarea,th,ul {
+	margin:0;
+	padding:0;
+}
+/*去除列表之前的小点*/
+ul,ol{
+	list-style:none;
+}
+/*设定按钮的点击时的手指*/
+button {
+	cursor:pointer;
+}
+/*设定a元素的颜色以及去除下划线*/
+a {
+	color:#666;
+	text-decoration:none;
+}
+a:hover {
+	color:#c81623;
+}
+/*设定按钮字体样式*/
+button,input {
+	font-family:Microsoft YaHei,tahoma,arial,Hiragino Sans GB,sans-serif;
+}
+.hide,.none {
+	display:none;
+}
+.fl {
+	float:left;
+}
+.fr {
+	float:right;
+}
+.al {
+	text-align:left;
+}
+.ac {
+	text-align:center;
+}
+.ar {
+	text-align:right;
+}
+.clear,.clr,.m,.mb,.mc,.mt,.p-detail,.p-img,.p-market,.p-name,.p-price,.sm,.smb,.smc,.smt {
+	overflow:hidden
+}
+/*设定版心*/
+.w {
+	margin:auto;
+	width:1190px
+}
+/*京东事件*/
+#j_event{
+	background-color: #ffebeb;
+}
+#j_event .w{
+	text-align: center;
+	position: relative;
+}
+#j_event a{
+	display: block;
+}
+#j_event .del{
+	position: absolute;
+	right:5px;
+	top:5px;
+	cursor:pointer;
+	color:#fff;
+	background: rgb(45,45,45);
+    opacity: 0.3;
+    font-weight: bold;
+    width: 20px;
+    line-height: 20px;
+    text-align: center;
+}
+/*导航栏*/
+#shortcut{
+	width: 100%;
+	background-color: #e3e4e5;
+}
+#shortcut .w{
+	height: 30px;
+	line-height:30px;
+	color:#999;
+	position: relative;
+}
+#shortcut .location{
+	position: absolute;
+	left:0;
+	margin-left: 203px;
+}
+#shortcut .location .bei{
+	font-size: 12px;
+	color:#666;
+}
+#shortcut .location .map img{
+	padding-top: 5px;
+	width: 16px;
+	height: 16px;
+}
+/*隐藏部分城市*/
+#shortcut .location .city{
+	background-color: #fff;
+	border:1px solid #e3e3e3;
+	position: relative;
+	z-index: 21;
+	display: none;
+}
+#shortcut .location .city li a{
+	padding: 5px 8px;
+	font-size: 11px;
+}
+#shortcut .nav ul{
+	position: absolute;
+	right:30px;
+	height: 30px;
+}
+#shortcut .nav li{
+	float:left;
+	margin-right: 15px;
+	font-size: 13px;
+}
+#shortcut .nav li .sp{
+	color:#f10215;
+}
+#shortcut .nav li span{
+	display: block;
+	width: 1px;
+	height: 10px;
+	background-color: #ccc;
+	margin-top: 10px;
+}
+#shortcut .nav li a{
+	display: inline-block;
+	color:#999;
+	font-size: 12px;
+}
+#shortcut .nav li a:hover{
+	color:#c81623;
+}
+#shortcut .nav li .small-icon{
+	position: relative;
+	right:0;
+	top:13px;
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	overflow: hidden;
+}
+#shortcut .nav li .small-icon p{
+	position: absolute;
+	left:0;
+	top:-15px;
+	width: 20px;
+	height: 20px;
+}
+#shortcut .nav li.myjd {
+	position: relative;
+}
+#shortcut .nav li.myjd .myjdlist{
+	position: absolute;
+	top:27px;
+	left:0;
+	width: 281px;
+	height: 160px;
+	background-color: #fff;
+	z-index: 20;
+	display: none;
+}
+#shortcut .nav li.myjd .myjd-one{
+	position: absolute;
+	left:0;
+	top:0;
+	width: 281px;
+	height: 93px;
+	border-bottom: 1px solid #e3e3e3;
+	
+}
+#shortcut .nav li.myjd .myjd-one li a{
+	padding-left:10px;
+	margin-right: 60px;
+}
+#shortcut .nav li.myjd .myjd-two{
+	position: absolute;
+	left:0;
+	top:100px;
+	width: 281px;
+	height: 67px;
+}
+#shortcut .nav li.myjd .myjd-two li a{
+	padding-left:10px;
+	margin-right: 60px;
+}
+#shortcut .nav li.guest{
+	position: relative;
+}
+#shortcut .nav li.guest .guestlist{
+	position: absolute;
+	top:30px;
+	left:0;
+	overflow: hidden;
+	width: 170px;
+	height: 322px;
+	z-index: 20;
+	background-color: #fff;
+	display: none;
+}
+#shortcut .nav li.guest .guest-one{
+	position: absolute;
+	left:0;
+	top:0;
+	width: 168px;
+	height: 135px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #eee;
+}
+#shortcut .nav li.guest .guest-one dt{
+	font-size: 11px;
+	color:#666;
+	padding-left:5px;
+}
+#shortcut .nav li.guest .guest-one dd{
+	float:left;
+	padding:5px;
+}
+#shortcut .nav li.guest .guest-two{
+	position: absolute;
+	left:0;
+	top:180px;
+	width: 168px;
+	height: 112px;
+}
+#shortcut .nav li.guest .guest-two dt{
+	font-size: 11px;
+	color:#666;
+	padding-left:5px;
+}
+#shortcut .nav li.guest .guest-two dd{
+	float:left;
+	padding:5px;
+}
+/*logo头部*/
+#header{
+	width: 1190px;
+	height: 140px;
+	margin:0 auto;
+	position:relative; 
+}
+#header .logo{
+	position: absolute;
+	top:-31px;
+	width: 190px;
+	height: 170px;
+	background-color: #fff;
+	z-index: 2;
+	box-shadow: 0 -12px 10px rgba(0,0,0,.2);
+}
+#header .search{
+	height: 60px;
+	position: relative;
+}
+#header .search .put{
+	width: 550px;
+	height: 30px;
+	position: absolute;
+	left:320px;
+	/*padding-left: 4px;*/
+}
+#header .search input{
+	width: 500px;
+	height: 33px;
+	outline: none;
+	margin-top: 25px;
+	border: 1px solid #f10215;
+	position: absolute;
+	left:0;
+}
+#header .search img{
+	position: absolute;
+	top:50%;
+	margin-top:10px;
+	position: absolute;
+	right:0;
+}
+#header .search .car_icon{
+	width: 190px;
+	height: 35px;
+	position: absolute;
+	margin-top: 25px;
+	right: 100px;
+	text-align: center;
+	line-height: 35px;
+	overflow: hidden;
+	border:1px solid #e3e4e5;
+}
+#header .search .car_icon .car{
+	display: inline-block;
+	position: absolute;
+	left:33px;
+	top:10px;
+	background-image: url("../images/jd2015img.png");
+	width: 16px;
+	height: 16px;
+	background-position: -1px -91px;
+}
+#header .search .car_icon .my{
+	color:#f10214;
+	font-size: 12px;
+}
+#header .search .car_icon .count{
+	display: inline-block;
+	padding:2px;
+	border-radius:9px;
+	background-color: #f10215;
+	font-size: 12px;
+	line-height: 12px;
+	color:#fff;
+}
+#header .search .sys{
+	position: absolute;
+	right: 0;
+	top:0;
+}
+#header .search .hotwords{
+	overflow: hidden;
+	position: absolute;
+	top:65px;
+	left:320px;
+	width: 550px;
+	height: 20px;
+}
+#header .search .hotwords a{
+	font-size: 12px;
+	color:#999;
+	margin-right: 7px;
+}
+#header .search .hotwords a:hover{
+	color:#f10215;
+}
+#header .search .hotwords a.style_red{
+	color:#c81623;
+}
+#header .search .navitems{
+	position: absolute;
+	left:220px;
+	top:110px;
+	width: 790px;
+	height: 40px;
+	overflow: hidden;
+}
+#header .search .navitems li{
+	float:left;
+	margin-right: 30px;
+}
+#header .search .navitems li a{
+	font-size: 16px;
+    font-weight: 700;
+    color: #555;
+}
+#header .search .navitems li a:hover{
+	color:#c81623;
+}
+#header .search .navitems li span{
+	display: block;
+	width: 1px;
+	height: 10px;
+	background-color: #ccc;
+	margin-top: 6px;
+}
